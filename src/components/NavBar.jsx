@@ -1,4 +1,4 @@
-import Logo from "../../public/candit.png"
+import Logo from "../../public/Candit.png"
 import { FaApple } from 'react-icons/fa6';
 import { IoLogoGooglePlaystore } from "react-icons/io5";
 import Image from "next/image";

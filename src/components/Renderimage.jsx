@@ -1,6 +1,6 @@
 import Group from "../../public/Group2.png";
 import Image from "next/image";
-import Logo from '../../public/candit.png';
+import Logo from '../../public/Candit.png';
 import html2canvas from "html2canvas";
 
 export function Renderimage({ userName, Content }) {
