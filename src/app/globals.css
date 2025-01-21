@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #ffffff;
+}
+@font-face {
+  font-family: 'my-font-bold';
+  src: url('./fonts/Geologica-ExtraBold.ttf'); 
+  
+
+}
+@font-face {
+  font-family: 'my-font-normal';
+  src: url('./fonts/Geologica-Light.ttf');
+}
+@font-face {
+  font-family: 'my-font-grobold';
+  src: url('./fonts/GROBOLD.ttf');
+}
+@font-face {
+  font-family: 'Grobold';
+  src:url('/fonts/Grobold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ibm-plex-mono-regular {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Spin clockwise */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Spin counterclockwise */
+@keyframes reverse-spin {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes zoomInOut {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.2) rotate(3deg); }
+  50% { transform: scale(0.9) rotate(-3deg); }
+  75%, 100% { transform: scale(1) rotate(0deg); }
+}
+
+.animate-zoom-shake {
+  animation: zoomInOut 1s ease-in-out infinite;
+  transform-origin: center;
+  display: inline-block;
+}
+
+/* Apply animations */
+.animate-spin {
+  animation: spin 2s linear infinite;
+}
+
+.animate-reverse-spin {
+  animation: reverse-spin 2s linear infinite;
+}
+
+.strokeText{
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: black;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.yellowStrokeText {
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #FFF500;
+}
