@@ -74,6 +74,15 @@ body {
   75%, 100% { transform: scale(1) rotate(0deg); }
 }
 
+#capture-area {
+  width: 350px !important;
+  height: auto !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .animate-zoom-shake {
   animation: zoomInOut 1s ease-in-out infinite;
   transform-origin: center;
