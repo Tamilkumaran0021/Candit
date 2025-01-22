@@ -52,7 +52,9 @@ export function Renderimage({ userName, Content }) {
         <Image width={2200} height={2200}  src={Group} alt="Mid Image" className="rounded-lg object-cover lg:w-[350px]" />
 
         <div className="text-white relative -top-16 block bg-gradient-to-br from-yellowBackground to-yellowSecondary p-2 w-[330px] rounded-3xl border-white border-2">
-          <h1 className="text-center text-2xl font-myFont  px-10 p-2 py-2 bg-lime-900 rounded-full w-full flex flex-col justify-center items-center">{userName}</h1>
+          <h1 className="text-center text-2xl font-myFont  px-10 p-2 py-2 bg-lime-900 rounded-full w-full flex flex-col justify-center items-center">
+            <p>{userName}</p>
+            </h1>
           <p className="text text-black text-center font-myFont py-8">{Content}</p>
           <p className="text-center text-black font-myFont">Get yours at canditapp.com</p>
         </div>
@@ -77,7 +79,7 @@ export function Renderimage({ userName, Content }) {
   <div className="fixed inset-0 flex items-center justify-center bg-black  z-50">
     <div className="flex-col gap-4 w-full flex items-center justify-center ">
       {/* Outer Circle */}
-      <div className="w-24 h-24 border-4 border-transparent animate-spin flex items-center justify-center border-t-blue-400 rounded-full">
+      <div className="w-24 h-24 border-4 border-transparent animate-spin flex items-center justify-center border-t-yellow-400 rounded-full">
         
         {/* Second Circle */}
         <div className="w-20 h-20 border-4 border-transparent animate-spin flex items-center justify-center border-t-red-400 rounded-full">
@@ -93,7 +95,9 @@ export function Renderimage({ userName, Content }) {
         </div>
 
       </div>
-    </div>
+      <h2 className="mt-5 text-center">Generating for your hold on...</h2>
+    </div >
+
   </div>
 )}
     </div>
