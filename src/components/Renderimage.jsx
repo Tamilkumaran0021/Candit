@@ -48,7 +48,7 @@ export function Renderimage({ userName, Content }) {
   return (
     <div className="w-full flex flex-col justify-center items-center">
       {/* Capture Area */}
-      <div id="capture-area" className="flex flex-col items-center justify-center  z-20   bg-black w-[350px] md:w-[350px]">
+      <div id="capture-area" className="flex flex-col items-center justify-center  z-20   bg-black w-[350px] md:w-[350px] h-fit">
         <Image width={2200} height={2200}  src={Group} alt="Mid Image" className="rounded-lg object-cover lg:w-[350px]" />
 
         <div className="text-white relative -top-16 block bg-gradient-to-br from-yellowBackground to-yellowSecondary p-2 w-[330px] rounded-3xl border-white border-2">
