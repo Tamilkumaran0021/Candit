@@ -2,8 +2,15 @@ import Group from "../../public/Group2.png";
 import Image from "next/image";
 import Logo from '../../public/Candit.png';
 import html2canvas from "html2canvas";
+import { useState } from "react";
 
 export function Renderimage({ userName, Content }) {
+
+    const [isLoading, setIsLoading] = useState(true);
+
+    setTimeout(() => {
+      setIsLoading(false); // Hide loading animation
+    }, 3000); // Wait for 3 seconds
 
   // Function to capture and share the image
   const handleShare = async () => {
@@ -65,6 +72,30 @@ export function Renderimage({ userName, Content }) {
           Share to friends!
         </button>
       </div>
+
+      {isLoading && (
+  <div className="fixed inset-0 flex items-center justify-center bg-black  z-50">
+    <div className="flex-col gap-4 w-full flex items-center justify-center ">
+      {/* Outer Circle */}
+      <div className="w-24 h-24 border-4 border-transparent animate-spin flex items-center justify-center border-t-blue-400 rounded-full">
+        
+        {/* Second Circle */}
+        <div className="w-20 h-20 border-4 border-transparent animate-spin flex items-center justify-center border-t-red-400 rounded-full">
+          
+          {/* Third Circle */}
+          <div className="w-16 h-16 border-4 border-transparent animate-spin flex items-center justify-center border-t-green-400 rounded-full">
+            
+            {/* Fourth Circle (Innermost) */}
+            <div className="w-12 h-12 border-4 border-transparent animate-spin flex items-center justify-center border-t-yellow-400 rounded-full"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+)}
     </>
   );
 }

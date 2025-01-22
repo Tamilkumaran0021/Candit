@@ -23,7 +23,7 @@ const StringContent = [
 export const Main = () => {
   const router = useRouter();
   const [userName, setuserName] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // Loading state
+
  
  
   
@@ -35,7 +35,6 @@ export const Main = () => {
   const SendDatafn = () => {
     if (!userName.trim()) return; // Prevent empty input
   
-    setIsLoading(true); // Show loading animation
     const TotStr = StringContent.length;
     const RandomNumber = Math.floor(Math.random() * TotStr);
   
@@ -45,11 +44,8 @@ export const Main = () => {
     };
   
     localStorage.setItem("message", JSON.stringify(FinalData));
-  
-    setTimeout(() => {
-      setIsLoading(false); // Hide loading animation
-      router.push("/ImageSharing");
-    }, 3000); // Wait for 3 seconds
+    router.push("/ImageSharing");
+
   };
 
   return (
@@ -99,30 +95,6 @@ export const Main = () => {
           <p className="text text-black font-myFont py-8">Enter your name below to see what awaits you in 2025</p>
         </div>
       </div>
-
-      {isLoading && (
-  <div className="fixed inset-0 flex items-center justify-center bg-black  z-50">
-    <div className="flex-col gap-4 w-full flex items-center justify-center ">
-      {/* Outer Circle */}
-      <div className="w-24 h-24 border-4 border-transparent animate-spin flex items-center justify-center border-t-blue-400 rounded-full">
-        
-        {/* Second Circle */}
-        <div className="w-20 h-20 border-4 border-transparent animate-spin flex items-center justify-center border-t-red-400 rounded-full">
-          
-          {/* Third Circle */}
-          <div className="w-16 h-16 border-4 border-transparent animate-spin flex items-center justify-center border-t-green-400 rounded-full">
-            
-            {/* Fourth Circle (Innermost) */}
-            <div className="w-12 h-12 border-4 border-transparent animate-spin flex items-center justify-center border-t-yellow-400 rounded-full"></div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </div>
-)}
 
     </div>
   );
