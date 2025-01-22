@@ -63,7 +63,7 @@ export const Main = () => {
         </h1>
 
         {/* Input Section */}
-        <div className="mt-8 relative w-80 mb-40">
+        <div className="mt-8 relative w-80  mb-20 md:mb-40">
           <input
             type="text"
             placeholder="Enter your Name to Generate"
@@ -92,7 +92,7 @@ export const Main = () => {
         }}
       ></div>
 
-      <div className="flex flex-col items-center absolute top-[800px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[350px] md:w-[400px] z-20 rounded-lg">
+      <div className="flex flex-col items-center absolute top-[750px] md:top-[800px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[350px] md:w-[400px] z-20 rounded-lg">
         <Image src={Group} alt="Mid Image" className="rounded-3xl w-[350px] md:w-[400px]" />
         <div className="text-white relative -top-72 bg-gradient-to-br from-yellowBackground to-yellowSecondary p-2 w-[330px] rounded-3xl border-white border-2">
           <h1 className="text-2xl font-myFontMountain p-2 px-10 py-3 mb-5 bg-emerald-950 rounded-full">YOUR NAME HERE</h1>
