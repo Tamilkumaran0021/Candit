@@ -63,7 +63,7 @@ export const Main = () => {
         </h1>
 
         {/* Input Section */}
-        <div className="mt-8 relative w-80  mb-20 md:mb-40">
+        <div className="mt-8 relative w-80  mb-32 md:mb-40">
           <input
             type="text"
             placeholder="Enter your Name to Generate"
