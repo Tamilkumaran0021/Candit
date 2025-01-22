@@ -20,7 +20,7 @@ export function Renderimage({ userName, Content }) {
 
     try {
       // Capture the div as canvas
-      const canvas = await html2canvas(captureDiv, { useCORS: true ,scale: 1});
+      const canvas = await html2canvas(captureDiv, { useCORS: true ,scale: 2});
       const image = canvas.toDataURL("image/png"); // Convert to base64
 
       // Check if Web Share API is available
