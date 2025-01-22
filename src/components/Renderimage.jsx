@@ -52,7 +52,7 @@ export function Renderimage({ userName, Content }) {
         <Image width={2200} height={2200}  src={Group} alt="Mid Image" className="rounded-lg object-cover lg:w-[350px]" />
 
         <div className="text-white relative -top-16 block bg-gradient-to-br from-yellowBackground to-yellowSecondary p-2 w-[330px] rounded-3xl border-white border-2">
-        <h1 className="relative w-full text-center text-2xl font-myFont px-10 py-2 bg-lime-900 rounded-full flex justify-center items-center">
+        <h1 className="w-full text-center text-2xl font-myFont px-10 pb-3 pt-2 bg-lime-900 rounded-full flex justify-center items-center">
   {userName}
 </h1>
 
