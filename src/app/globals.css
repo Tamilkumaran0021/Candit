@@ -16,6 +16,12 @@
   font-family: 'my-font-normal';
   src: url('./fonts/Geologica-Light.ttf');
 }
+
+@font-face{
+  font-family: "my-font-hallowine";
+  src:url('./fonts/MountainsofChristmas-Regular.ttf')
+}
+
 @font-face {
   font-family: 'my-font-grobold';
   src: url('./fonts/GROBOLD.ttf');

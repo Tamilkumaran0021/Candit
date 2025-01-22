@@ -27,7 +27,8 @@ module.exports = {
       fontFamily:{
         myFont:['my-font-bold'],
         myFontNormal:['my-font-normal'],
-        myFontGroBold:['my-font-grobold']
+        myFontGroBold:['my-font-grobold'],
+        myFontMountain:['my-font-hallowine']
       },
       keyframes: {
         diagonalShake: {

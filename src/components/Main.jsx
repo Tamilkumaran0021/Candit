@@ -58,16 +58,16 @@ export const Main = () => {
         <NavBar />
 
         {/* Header Section */}
-        <h1 className="text-black text-3xl md:text-5xl font-bold mt-4 font-myFont">
-          See what awaits you <br /> in 2025
+        <h1 className="text-black text-3xl md:text-[40px] font-black mt-4 font-myFont">
+          See what awaits you <span className="block mt-2"> in 2025</span>
         </h1>
 
         {/* Input Section */}
-        <div className="mt-8 relative w-80 mb-24">
+        <div className="mt-8 relative w-80 mb-40">
           <input
             type="text"
             placeholder="Enter your Name to Generate"
-            className="w-full px-4 py-4 rounded-full border border-gray-500 focus:outline-none text-gray-800"
+            className="w-full px-4 py-4 rounded-full border border-gray-500 focus:outline-none text-gray-800 bg-gray-200 opacity-80 font-bold text-center placeholder:text-md placeholder:text-left placeholder:pl-5"
             value={userName}
             onChange={ChangeHandlefn}
           />
@@ -92,16 +92,16 @@ export const Main = () => {
         }}
       ></div>
 
-      <div className="flex flex-col items-center absolute top-[750px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[350px] z-20 rounded-lg">
-        <Image src={Group} alt="Mid Image" className="rounded-lg w-[350px]" />
+      <div className="flex flex-col items-center absolute top-[800px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] z-20 rounded-lg">
+        <Image src={Group} alt="Mid Image" className="rounded-3xl w-[400px]" />
         <div className="text-white relative -top-72 bg-gradient-to-br from-yellowBackground to-yellowSecondary p-2 w-[330px] rounded-3xl border-white border-2">
-          <h1 className="text-2xl font-myFont p-2 px-10 mb-5 bg-lime-900 rounded-full">YOUR NAME HERE</h1>
+          <h1 className="text-2xl font-myFontMountain p-2 px-10 py-3 mb-5 bg-emerald-950 rounded-full">YOUR NAME HERE</h1>
           <p className="text text-black font-myFont py-8">Enter your name below to see what awaits you in 2025</p>
         </div>
       </div>
 
       {isLoading && (
-  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
+  <div className="fixed inset-0 flex items-center justify-center bg-black  z-50">
     <div className="flex-col gap-4 w-full flex items-center justify-center ">
       {/* Outer Circle */}
       <div className="w-24 h-24 border-4 border-transparent animate-spin flex items-center justify-center border-t-blue-400 rounded-full">

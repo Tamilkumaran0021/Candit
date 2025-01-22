@@ -1,7 +1,8 @@
 import Logo from "../../public/Candit.png"
 import { FaApple } from 'react-icons/fa6';
-import { IoLogoGooglePlaystore } from "react-icons/io5";
+
 import Image from "next/image";
+import { FaAndroid } from "react-icons/fa6";
 
 export const NavBar = ()=>{
     
@@ -16,7 +17,7 @@ export const NavBar = ()=>{
                 <FaApple size={20} />
               </div>
               <div className='w-[60px] h-[40px] flex items-center justify-center text-white  bg-black rounded-r-full'>
-                <IoLogoGooglePlaystore size={20} />
+                <FaAndroid size={20} className="text-white"/>
               </div>
         </div>
     </div>
