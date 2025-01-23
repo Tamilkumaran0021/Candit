@@ -53,9 +53,11 @@ export function Renderimage({ userName, Content }) {
         <Image width={2200} height={2200}  src={Group} alt="Mid Image" className="rounded-lg object-cover w-[300px] lg:w-[350px]" />
 
         <div className="text-white relative -top-20  bg-gradient-to-br from-yellowBackground to-yellowSecondary p-2 w-[280px] rounded-3xl border-white border-2 flex flex-col">
-        <p className="w-full text-center text-2xl font-myFont px-10 py-2 bg-lime-900 rounded-full flex justify-center items-center">
+        <div className="w-full text-center text-2xl font-myFont px-10 py-2 bg-lime-900 rounded-full flex justify-center items-center">
+        <p >
       {userName}
         </p>
+        </div>
 
           <p className="text text-black text-center font-myFont py-8">{Content}</p>
           <p className="text-center text-black font-myFont">Get yours at canditapp.com</p>
