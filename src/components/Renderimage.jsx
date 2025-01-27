@@ -25,13 +25,17 @@ export function Renderimage({ userName, Content }) {
       await document.fonts.ready;
 
       // Small delay to avoid rendering issues in production
-      await new Promise((resolve) => setTimeout(resolve, 300));
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+      // Force a reflow before capturing (Fixes layout shift)
+      captureDiv.style.transform = "scale(1)";
+      captureDiv.style.transformOrigin = "top left";
 
       // Capture the div as a canvas
       const canvas = await html2canvas(captureDiv, {
         useCORS: true,
-        scale: 2, // Keep scale moderate to prevent distortion
-        foreignObjectRendering: true,
+        scale: window.devicePixelRatio || 2, // Use correct device scale
+        backgroundColor: null, // Ensures transparent background
       });
 
       const image = canvas.toDataURL("image/png");
@@ -63,7 +67,7 @@ export function Renderimage({ userName, Content }) {
       {/* Capture Area */}
       <div
         id="capture-area"
-        className="flex flex-col items-center justify-center z-20 my-2 bg-black w-[350px] h-auto p-4"
+        className="flex flex-col items-center justify-center z-20 my-2 bg-black w-[350px] h-auto p-4 border border-transparent"
       >
         <Image
           width={2200}
@@ -78,7 +82,7 @@ export function Renderimage({ userName, Content }) {
             <p>{userName}</p>
           </div>
 
-          <p className="text-black text-center font-myFont py-8 tracking-wide">
+          <p className="text-black text-center font-myFont py-8 tracking-wide leading-tight">
             {Content}
           </p>
           <p className="text-center text-black font-myFont">
