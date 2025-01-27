@@ -85,7 +85,7 @@ export function Renderimage({ userName, Content }) {
             <p className="w-full text-center m-auto " >{userName}</p>
           </div>):
           (<div className="w-full text-center text-2xl font-myFont px-10 py-2 bg-lime-900 rounded-full  justify-center items-center whitespace-nowrap overflow-hidden text-ellipsis">
-            <p className="w-full text-center m-auto mt-1 mb-3" >{userName}</p>
+            <p className="w-full text-center m-auto mt-0 mb-4" >{userName}</p>
           </div>)}
 
           <p className="text-black text-center font-myFont py-8 tracking-wide leading-tight">
