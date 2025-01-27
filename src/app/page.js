@@ -7,6 +7,7 @@ import Image from "next/image";
 import Group from "../../public/Group.png";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
+import { Alert } from "@/components/Alert";
 
 const StringContent = [
     { Content: "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle." },
@@ -52,6 +53,7 @@ export default function Home(){
 
     return(
         <>
+        <Alert/>
         <div className="flex flex-col items-center bg-gradient-to-br from-yellowBackground to-yellowSecondary w-full pt-4 rounded-t-3xl">
                 <NavBar />
         
