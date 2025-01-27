@@ -7,6 +7,7 @@ import React from "react";
 
 export function Renderimage({ userName, Content }) {
   const [isLoading, setIsLoading] = useState(true);
+  const [screenstate, setscreenstate] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -17,6 +18,7 @@ export function Renderimage({ userName, Content }) {
 
   // Function to capture and share the image
   const handleShare = async () => {
+    setscreenstate(true);
     const captureDiv = document.getElementById("capture-area");
     if (!captureDiv) return;
 
@@ -60,6 +62,7 @@ export function Renderimage({ userName, Content }) {
     } catch (error) {
       console.error("Sharing failed", error);
     }
+    setscreenstate(false);
   };
 
   return (
@@ -78,9 +81,12 @@ export function Renderimage({ userName, Content }) {
         />
 
         <div className="text-white relative -top-20 bg-gradient-to-br from-yellowBackground to-yellowSecondary p-4 w-[280px] rounded-3xl border-white border-2 flex flex-col">
-          <div className="w-full text-center text-2xl font-myFont px-10 bg-lime-900 rounded-full flex justify-center items-center whitespace-nowrap overflow-hidden text-ellipsis">
+         { (!screenstate)?(<div className="w-full text-center text-2xl font-myFont px-10 bg-lime-900 rounded-full flex justify-center items-center whitespace-nowrap overflow-hidden text-ellipsis">
             <p className="w-full text-center m-auto " >{userName}</p>
-          </div>
+          </div>):
+          (<div className="w-full text-center text-2xl font-myFont px-10 py-2 bg-lime-900 rounded-full  justify-center items-center whitespace-nowrap overflow-hidden text-ellipsis">
+            <p className="w-full text-center m-auto mb-2" >{userName}</p>
+          </div>)}
 
           <p className="text-black text-center font-myFont py-8 tracking-wide leading-tight">
             {Content}
