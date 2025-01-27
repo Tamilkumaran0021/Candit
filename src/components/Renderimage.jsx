@@ -1,32 +1,44 @@
 import Group from "../../public/Group2.png";
 import Image from "next/image";
-import Logo from '../../public/Candit.png';
+import Logo from "../../public/Candit.png";
 import html2canvas from "html2canvas";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 
 export function Renderimage({ userName, Content }) {
+  const [isLoading, setIsLoading] = useState(true);
 
-    const [isLoading, setIsLoading] = useState(true);
-
-    setTimeout(() => {
-      setIsLoading(false); // Hide loading animation
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
     }, 3000); // Wait for 3 seconds
+    return () => clearTimeout(timer);
+  }, []);
 
   // Function to capture and share the image
   const handleShare = async () => {
-    const captureDiv = document.getElementById("capture-area"); // Target div
-
+    const captureDiv = document.getElementById("capture-area");
     if (!captureDiv) return;
 
     try {
-      // Capture the div as canvas
-      const canvas = await html2canvas(captureDiv, { useCORS: true ,scale: 10});
-      const image = canvas.toDataURL("image/png"); // Convert to base64
+      // Ensure fonts are loaded before capturing
+      await document.fonts.ready;
+
+      // Small delay to avoid rendering issues in production
+      await new Promise((resolve) => setTimeout(resolve, 300));
+
+      // Capture the div as a canvas
+      const canvas = await html2canvas(captureDiv, {
+        useCORS: true,
+        scale: 2, // Keep scale moderate to prevent distortion
+        foreignObjectRendering: true,
+      });
+
+      const image = canvas.toDataURL("image/png");
 
       // Check if Web Share API is available
       if (navigator.share) {
-        const blob = await (await fetch(image)).blob(); // Convert to blob
+        const blob = await (await fetch(image)).blob();
         const file = new File([blob], "shared-image.png", { type: "image/png" });
 
         await navigator.share({
@@ -47,24 +59,41 @@ export function Renderimage({ userName, Content }) {
   };
 
   return (
-    <div className="w-full flex flex-col justify-center items-center ">
+    <div className="w-full flex flex-col justify-center items-center">
       {/* Capture Area */}
-      <div id="capture-area" className="flex flex-col items-center justify-center  z-20 my-2  h-full bg-black w-full md:w-[350px]">
-        <Image width={2200} height={2200}  src={Group} alt="Mid Image" className="rounded-lg object-cover w-[300px] lg:w-[350px]" />
+      <div
+        id="capture-area"
+        className="flex flex-col items-center justify-center z-20 my-2 bg-black w-[350px] h-auto p-4"
+      >
+        <Image
+          width={2200}
+          height={2200}
+          src={Group}
+          alt="Mid Image"
+          className="rounded-lg object-cover w-[300px] lg:w-[350px]"
+        />
 
-        <div className="text-white relative -top-20  bg-gradient-to-br from-yellowBackground to-yellowSecondary p-2 w-[280px] rounded-3xl border-white border-2 flex flex-col">
-        <div className="w-full text-center text-2xl font-myFont px-10 py-2 bg-lime-900 rounded-full flex justify-center items-center">
-    <p>
-      {userName}
-      </p>
-        </div>
+        <div className="text-white relative -top-20 bg-gradient-to-br from-yellowBackground to-yellowSecondary p-4 w-[280px] rounded-3xl border-white border-2 flex flex-col">
+          <div className="w-full text-center text-2xl font-myFont px-10 py-2 bg-lime-900 rounded-full flex justify-center items-center">
+            <p>{userName}</p>
+          </div>
 
-          <p className="text text-black text-center font-myFont py-8">{Content}</p>
-          <p className="text-center text-black font-myFont">Get yours at canditapp.com</p>
+          <p className="text-black text-center font-myFont py-8 tracking-wide">
+            {Content}
+          </p>
+          <p className="text-center text-black font-myFont">
+            Get yours at canditapp.com
+          </p>
         </div>
 
         <div className="flex flex-col items-center mt-0">
-          <Image src={Logo} alt="Logo" width={2200} height={2200}  className=" object-cover w-[100px]" />
+          <Image
+            src={Logo}
+            alt="Logo"
+            width={2200}
+            height={2200}
+            className="object-cover w-[100px]"
+          />
           <p>Powered by Friendship</p>
         </div>
       </div>
@@ -79,31 +108,27 @@ export function Renderimage({ userName, Content }) {
         </button>
       </div>
 
+      {/* Loading Animation */}
       {isLoading && (
-  <div className="fixed inset-0 flex items-center justify-center bg-black  z-50">
-    <div className="flex-col gap-4 w-full flex items-center justify-center ">
-      {/* Outer Circle */}
-      <div className="w-24 h-24 border-4 border-transparent animate-spin flex items-center justify-center border-t-yellow-400 rounded-full">
-        
-        {/* Second Circle */}
-        <div className="w-20 h-20 border-4 border-transparent animate-spin flex items-center justify-center border-t-red-400 rounded-full">
-          
-          {/* Third Circle */}
-          <div className="w-16 h-16 border-4 border-transparent animate-spin flex items-center justify-center border-t-green-400 rounded-full">
-            
-            {/* Fourth Circle (Innermost) */}
-            <div className="w-12 h-12 border-4 border-transparent animate-spin flex items-center justify-center border-t-yellow-400 rounded-full"></div>
-
+        <div className="fixed inset-0 flex items-center justify-center bg-black z-50">
+          <div className="flex-col gap-4 w-full flex items-center justify-center">
+            {/* Outer Circle */}
+            <div className="w-24 h-24 border-4 border-transparent animate-spin flex items-center justify-center border-t-yellow-400 rounded-full">
+              {/* Second Circle */}
+              <div className="w-20 h-20 border-4 border-transparent animate-spin flex items-center justify-center border-t-red-400 rounded-full">
+                {/* Third Circle */}
+                <div className="w-16 h-16 border-4 border-transparent animate-spin flex items-center justify-center border-t-green-400 rounded-full">
+                  {/* Fourth Circle (Innermost) */}
+                  <div className="w-12 h-12 border-4 border-transparent animate-spin flex items-center justify-center border-t-yellow-400 rounded-full"></div>
+                </div>
+              </div>
+            </div>
+            <h2 className="mt-5 text-center text-white">
+              Generating for you, hold on...
+            </h2>
           </div>
-
         </div>
-
-      </div>
-      <h2 className="mt-5 text-center text-white">Generating for your hold on...</h2>
-    </div >
-
-  </div>
-)}
+      )}
     </div>
   );
 }

@@ -54,11 +54,11 @@ export default function Home(){
     return(
         <>
         <Alert/>
-        <div className="flex flex-col items-center bg-gradient-to-br from-yellowBackground to-yellowSecondary w-full pt-4 rounded-t-3xl">
+        <div className="flex flex-col items-center bg-gradient-to-br from-yellowBackground to-yellowSecondary w-full pb-0 pt-4 rounded-t-3xl">
                 <NavBar />
         
                 {/* Header Section */}
-                <h1 className="text-black text-3xl md:text-[40px] font-black mt-4 font-myFont">
+                <h1 className="text-black text-center text-3xl md:text-[40px] font-black mt-6 font-myFont">
                   See what awaits you <span className="block mt-2"> in 2025</span>
                 </h1>
         
@@ -84,7 +84,8 @@ export default function Home(){
           height: "50px",
           backgroundColor: "#000000",
           clipPath: "ellipse(60% 100% at 50% 100%)",
-          margin:0
+          margin:0,
+          padding:0
         }}
       ></div>
         </div>
